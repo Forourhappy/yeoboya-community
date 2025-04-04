@@ -11,7 +11,7 @@ export const NavigationBar = () => {
         <Link to="/login">
           <Button variant="secondary">로그인</Button>
         </Link>
-        <Link to="/sign-up">
+        <Link to="/signup">
           <Button>회원가입</Button>
         </Link>
       </div>

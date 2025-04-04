@@ -11,31 +11,46 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as mainRouteImport } from './routes/(main)/route'
 import { Route as mainIndexImport } from './routes/(main)/index'
+import { Route as mainSignupImport } from './routes/(main)/signup'
+import { Route as mainLoginImport } from './routes/(main)/login'
 
 // Create/Update Routes
 
-const mainRouteRoute = mainRouteImport.update({
-  id: '/(main)',
+const mainIndexRoute = mainIndexImport.update({
+  id: '/(main)/',
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const mainIndexRoute = mainIndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => mainRouteRoute,
+const mainSignupRoute = mainSignupImport.update({
+  id: '/(main)/signup',
+  path: '/signup',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const mainLoginRoute = mainLoginImport.update({
+  id: '/(main)/login',
+  path: '/login',
+  getParentRoute: () => rootRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/(main)': {
-      id: '/(main)'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof mainRouteImport
+    '/(main)/login': {
+      id: '/(main)/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof mainLoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/(main)/signup': {
+      id: '/(main)/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof mainSignupImport
       parentRoute: typeof rootRoute
     }
     '/(main)/': {
@@ -43,54 +58,51 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof mainIndexImport
-      parentRoute: typeof mainRouteImport
+      parentRoute: typeof rootRoute
     }
   }
 }
 
 // Create and export the route tree
 
-interface mainRouteRouteChildren {
-  mainIndexRoute: typeof mainIndexRoute
-}
-
-const mainRouteRouteChildren: mainRouteRouteChildren = {
-  mainIndexRoute: mainIndexRoute,
-}
-
-const mainRouteRouteWithChildren = mainRouteRoute._addFileChildren(
-  mainRouteRouteChildren,
-)
-
 export interface FileRoutesByFullPath {
+  '/login': typeof mainLoginRoute
+  '/signup': typeof mainSignupRoute
   '/': typeof mainIndexRoute
 }
 
 export interface FileRoutesByTo {
+  '/login': typeof mainLoginRoute
+  '/signup': typeof mainSignupRoute
   '/': typeof mainIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/(main)': typeof mainRouteRouteWithChildren
+  '/(main)/login': typeof mainLoginRoute
+  '/(main)/signup': typeof mainSignupRoute
   '/(main)/': typeof mainIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/login' | '/signup' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/(main)' | '/(main)/'
+  to: '/login' | '/signup' | '/'
+  id: '__root__' | '/(main)/login' | '/(main)/signup' | '/(main)/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  mainRouteRoute: typeof mainRouteRouteWithChildren
+  mainLoginRoute: typeof mainLoginRoute
+  mainSignupRoute: typeof mainSignupRoute
+  mainIndexRoute: typeof mainIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  mainRouteRoute: mainRouteRouteWithChildren,
+  mainLoginRoute: mainLoginRoute,
+  mainSignupRoute: mainSignupRoute,
+  mainIndexRoute: mainIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -103,18 +115,19 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/(main)"
-      ]
-    },
-    "/(main)": {
-      "filePath": "(main)/route.tsx",
-      "children": [
+        "/(main)/login",
+        "/(main)/signup",
         "/(main)/"
       ]
     },
+    "/(main)/login": {
+      "filePath": "(main)/login.tsx"
+    },
+    "/(main)/signup": {
+      "filePath": "(main)/signup.tsx"
+    },
     "/(main)/": {
-      "filePath": "(main)/index.tsx",
-      "parent": "/(main)"
+      "filePath": "(main)/index.tsx"
     }
   }
 }
