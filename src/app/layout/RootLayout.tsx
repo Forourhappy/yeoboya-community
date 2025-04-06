@@ -3,10 +3,10 @@ import { NavigationBar } from "~/app/NavigationBar";
 
 export const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="min-h-screen overflow-hidden bg-background">
+    <div className="flex min-h-screen flex-col bg-background">
       <NavigationBar />
-      <main className="">
-        <div className="mx-auto min-w-xs p-4">{children}</div>
+      <main className="flex min-w-xs flex-grow items-center justify-center p-4">
+        {children}
       </main>
     </div>
   );

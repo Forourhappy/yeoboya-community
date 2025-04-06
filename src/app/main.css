@@ -16,6 +16,27 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+
+  @media (max-width: 640px) {
+    @apply text-sm;
+  }
+
+  font-family:
+    "Pretendard Variable",
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    sans-serif;
 }
 
 :root {
@@ -41,19 +62,19 @@ body {
   --popover-foreground: var(--cobalt-950);
 
   --primary: var(--cobalt-900);
-  --primary-foreground: oklch(0.983 0.017 264.8);
+  --primary-foreground: var(--cobalt-50);
 
-  --secondary: oklch(0.968 0.019 267.1);
+  --secondary: var(--color-gray-100);
   --secondary-foreground: var(--cobalt-900);
 
-  --muted: oklch(0.968 0.019 267.1);
-  --muted-foreground: oklch(0.562 0.041 280.1);
+  --muted: var(--color-gray-100);
+  --muted-foreground: var(--color-gray-500);
 
-  --accent: oklch(0.968 0.019 267.1);
+  --accent: var(--color-gray-100);
   --accent-foreground: var(--cobalt-900);
 
-  --destructive: oklch(0.634 0.082 76);
-  --destructive-foreground: oklch(0.983 0.017 264.8);
+  --destructive: var(--color-red-500);
+  --destructive-foreground: var(--cobalt-50);
 
   --border: oklch(0.93 0.023 271.4);
   --input: oklch(0.93 0.023 271.4);
@@ -64,28 +85,28 @@ body {
 
 .dark {
   --background: oklch(0.146 0.031 283.6);
-  --foreground: oklch(0.983 0.017 264.8);
+  --foreground: var(--cobalt-50);
 
   --card: oklch(0.146 0.031 283.6);
-  --card-foreground: oklch(0.983 0.017 264.8);
+  --card-foreground: var(--cobalt-50);
 
   --popover: oklch(0.146 0.031 283.6);
-  --popover-foreground: oklch(0.983 0.017 264.8);
+  --popover-foreground: var(--cobalt-50);
 
-  --primary: oklch(0.983 0.017 264.8);
+  --primary: var(--cobalt-50);
   --primary-foreground: var(--cobalt-900);
 
   --secondary: oklch(0.288 0.035 282.5);
-  --secondary-foreground: oklch(0.983 0.017 264.8);
+  --secondary-foreground: var(--cobalt-50);
 
   --muted: oklch(0.288 0.035 282.5);
   --muted-foreground: oklch(0.717 0.039 278.4);
 
   --accent: oklch(0.288 0.035 282.5);
-  --accent-foreground: oklch(0.983 0.017 264.8);
+  --accent-foreground: var(--cobalt-50);
 
-  --destructive: oklch(0.394 0.053 76.5);
-  --destructive-foreground: oklch(0.983 0.017 264.8);
+  --destructive: var(--color-red-500);
+  --destructive-foreground: var(--cobalt-50);
 
   --border: oklch(0.288 0.035 282.5);
   --input: oklch(0.288 0.035 282.5);

@@ -3,18 +3,18 @@ import { Link } from "@tanstack/react-router";
 
 export const NavigationBar = () => {
   return (
-    <header className="sticky top-0 z-10 flex justify-between bg-white px-4 shadow-sm">
-      <Link to="/">
+    <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 shadow-sm">
+      <Link to="/" className="mr-auto">
         <h1 className="p-4 font-bold text-xl">커뮤니티</h1>
       </Link>
-      <div className="flex items-center gap-2">
-        <Link to="/login">
-          <Button variant="secondary">로그인</Button>
-        </Link>
-        <Link to="/signup">
-          <Button>회원가입</Button>
-        </Link>
-      </div>
+      {/* <div className="flex items-center gap-2"> */}
+      <Link to="/login">
+        <Button variant="secondary">로그인</Button>
+      </Link>
+      <Link to="/signup">
+        <Button>회원가입</Button>
+      </Link>
+      {/* </div> */}
     </header>
     // <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
     //     <div className="container flex h-16 items-center justify-between">

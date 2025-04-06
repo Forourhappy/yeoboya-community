@@ -7,6 +7,7 @@ import { routeTree } from "./routeTree.gen.ts";
 import "./main.css";
 
 import reportWebVitals from "./reportWebVitals.ts";
+import { TanstackQueryProvider } from "./provider/TanstackQueryProvider.tsx";
 
 // Create a new router instance
 const router = createRouter({
@@ -31,7 +32,9 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <TanstackQueryProvider>
+        <RouterProvider router={router} />
+      </TanstackQueryProvider>
     </StrictMode>
   );
 }
