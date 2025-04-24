@@ -1,10 +1,10 @@
 import { Button } from "~/shared/ui/shadcn/button.tsx";
 import { Tabs, TabsContent } from "~/shared/ui/shadcn/tabs.tsx";
 import { ChevronDown } from "lucide-react";
-import { BoardCard } from "./ui/BoardCard.tsx";
+import { PostCard } from "./ui/PostCard.tsx";
 import { Link } from "@tanstack/react-router";
 
-export function BoardPage() {
+export function PostPage() {
   const posts = [
     {
       id: 1,
@@ -85,7 +85,7 @@ export function BoardPage() {
 
   return (
     // <div className="grid grid-cols-1 gap-6 md:grid-cols-[16rem_1fr]">
-    <div className="grid max-w-5xl grow grid-cols-1">
+    <div className="max-w-5xl grow">
       {/* Sidebar */}
       {/* <aside className="space-y-6">
 				<div className="sticky top-20 space-y-6">
@@ -123,7 +123,7 @@ export function BoardPage() {
       {/* Content */}
       <div className="mb-6 flex items-center justify-between">
         <h2 className="font-bold text-2xl">전체 게시글</h2>
-        <Link to="/board/edit">
+        <Link to="/post/edit">
           <Button variant="secondary">글쓰기</Button>
         </Link>
       </div>
@@ -151,7 +151,7 @@ export function BoardPage() {
 
         <TabsContent value="all" className="space-y-4">
           {posts.map((post) => (
-            <BoardCard key={post.id} post={post} />
+            <PostCard key={post.id} post={post} />
           ))}
         </TabsContent>
       </Tabs>

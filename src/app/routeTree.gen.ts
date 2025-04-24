@@ -14,7 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as mainIndexImport } from './routes/(main)/index'
 import { Route as mainSignupImport } from './routes/(main)/signup'
 import { Route as mainLoginImport } from './routes/(main)/login'
-import { Route as mainBoardEditIndexImport } from './routes/(main)/board/edit/index'
+import { Route as mainPostEditIndexImport } from './routes/(main)/post/edit/index'
 
 // Create/Update Routes
 
@@ -36,9 +36,9 @@ const mainLoginRoute = mainLoginImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const mainBoardEditIndexRoute = mainBoardEditIndexImport.update({
-  id: '/(main)/board/edit/',
-  path: '/board/edit/',
+const mainPostEditIndexRoute = mainPostEditIndexImport.update({
+  id: '/(main)/post/edit/',
+  path: '/post/edit/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,11 +67,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainIndexImport
       parentRoute: typeof rootRoute
     }
-    '/(main)/board/edit/': {
-      id: '/(main)/board/edit/'
-      path: '/board/edit'
-      fullPath: '/board/edit'
-      preLoaderRoute: typeof mainBoardEditIndexImport
+    '/(main)/post/edit/': {
+      id: '/(main)/post/edit/'
+      path: '/post/edit'
+      fullPath: '/post/edit'
+      preLoaderRoute: typeof mainPostEditIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -83,14 +83,14 @@ export interface FileRoutesByFullPath {
   '/login': typeof mainLoginRoute
   '/signup': typeof mainSignupRoute
   '/': typeof mainIndexRoute
-  '/board/edit': typeof mainBoardEditIndexRoute
+  '/post/edit': typeof mainPostEditIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/login': typeof mainLoginRoute
   '/signup': typeof mainSignupRoute
   '/': typeof mainIndexRoute
-  '/board/edit': typeof mainBoardEditIndexRoute
+  '/post/edit': typeof mainPostEditIndexRoute
 }
 
 export interface FileRoutesById {
@@ -98,20 +98,20 @@ export interface FileRoutesById {
   '/(main)/login': typeof mainLoginRoute
   '/(main)/signup': typeof mainSignupRoute
   '/(main)/': typeof mainIndexRoute
-  '/(main)/board/edit/': typeof mainBoardEditIndexRoute
+  '/(main)/post/edit/': typeof mainPostEditIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/login' | '/signup' | '/' | '/board/edit'
+  fullPaths: '/login' | '/signup' | '/' | '/post/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/signup' | '/' | '/board/edit'
+  to: '/login' | '/signup' | '/' | '/post/edit'
   id:
     | '__root__'
     | '/(main)/login'
     | '/(main)/signup'
     | '/(main)/'
-    | '/(main)/board/edit/'
+    | '/(main)/post/edit/'
   fileRoutesById: FileRoutesById
 }
 
@@ -119,14 +119,14 @@ export interface RootRouteChildren {
   mainLoginRoute: typeof mainLoginRoute
   mainSignupRoute: typeof mainSignupRoute
   mainIndexRoute: typeof mainIndexRoute
-  mainBoardEditIndexRoute: typeof mainBoardEditIndexRoute
+  mainPostEditIndexRoute: typeof mainPostEditIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   mainLoginRoute: mainLoginRoute,
   mainSignupRoute: mainSignupRoute,
   mainIndexRoute: mainIndexRoute,
-  mainBoardEditIndexRoute: mainBoardEditIndexRoute,
+  mainPostEditIndexRoute: mainPostEditIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -142,7 +142,7 @@ export const routeTree = rootRoute
         "/(main)/login",
         "/(main)/signup",
         "/(main)/",
-        "/(main)/board/edit/"
+        "/(main)/post/edit/"
       ]
     },
     "/(main)/login": {
@@ -154,8 +154,8 @@ export const routeTree = rootRoute
     "/(main)/": {
       "filePath": "(main)/index.tsx"
     },
-    "/(main)/board/edit/": {
-      "filePath": "(main)/board/edit/index.tsx"
+    "/(main)/post/edit/": {
+      "filePath": "(main)/post/edit/index.tsx"
     }
   }
 }

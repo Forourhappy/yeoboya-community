@@ -1,10 +1,10 @@
-import { BookmarkIcon, Eye, Heart, MessageSquare } from 'lucide-react';
-import { Badge } from '~/shared/ui/Badge';
-import { Card, CardContent, CardFooter } from '~/shared/ui/Card';
-import { Avatar, AvatarFallback } from '~/shared/ui/shadcn/avatar';
-import { Button } from '~/shared/ui/shadcn/button';
+import { BookmarkIcon, Eye, Heart, MessageSquare } from "lucide-react";
+import { Badge } from "~/shared/ui/Badge";
+import { Card, CardContent, CardFooter } from "~/shared/ui/Card";
+import { Avatar, AvatarFallback } from "~/shared/ui/shadcn/avatar";
+import { Button } from "~/shared/ui/shadcn/button";
 
-export const BoardCard = ({ post }) => {
+export const PostCard = ({ post }) => {
   return (
     <Card
       key={post.id}
