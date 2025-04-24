@@ -1,9 +1,19 @@
 import { Button } from "~/shared/ui/shadcn/button.tsx";
 import { Link } from "@tanstack/react-router";
+import { cn } from "~/lib/utils";
+import type { HTMLAttributes } from "react";
 
-export const NavigationBar = () => {
+type Props = HTMLAttributes<HTMLHeadElement>;
+
+export const NavigationBar = ({ className, ...props }: Props) => {
   return (
-    <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-4 shadow-sm">
+    <header
+      className={cn(
+        "sticky top-0 z-10 flex items-center justify-between gap-2 bg-white px-4 shadow-sm",
+        className
+      )}
+      {...props}
+    >
       <Link to="/" className="mr-auto">
         <h1 className="p-4 font-bold text-xl">커뮤니티</h1>
       </Link>
